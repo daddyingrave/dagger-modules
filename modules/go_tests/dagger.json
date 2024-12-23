@@ -1,11 +1,11 @@
 {
-  "name": "test",
+  "name": "go_tests",
   "engineVersion": "v0.15.1",
   "sdk": "go",
   "dependencies": [
     {
-      "name": "go_build",
-      "source": ".."
+      "name": "go",
+      "source": "../go"
     }
   ],
   "source": "."

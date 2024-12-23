@@ -1,10 +1,14 @@
 // Go programming language module.
 package main
 
+import "dagger/go/internal/dagger"
+
 // Generate Run "go generate" command.
 //
 // Consult "go help generate" for more information.
 func (m *Go) Generate(
+	// Directory with sources
+	source *dagger.Directory,
 	// Packages (or files) to run "go generate" on.
 	//
 	// +optional
@@ -36,7 +40,10 @@ func (m *Go) Generate(
 		args = append(args, packages...)
 	}
 
-	m.Container = m.Container.WithExec(args)
+	m.Container = m.Container.
+		WithDirectory("/src", source).
+		WithWorkdir("/src").
+		WithExec(args)
 
 	return m
 }

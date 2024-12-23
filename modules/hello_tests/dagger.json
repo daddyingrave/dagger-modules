@@ -1,6 +1,6 @@
 {
-  "name": "go_build",
+  "name": "hello_tests",
   "engineVersion": "v0.15.1",
   "sdk": "go",
-  "source": ".dagger"
+  "source": "."
 }
