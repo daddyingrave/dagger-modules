@@ -72,7 +72,6 @@ func (m *Go) Build(
 	return m.Container.
 		WithDirectory("/src", source).
 		WithWorkdir("/src").
-		WithExec([]string{"go", "mod", "download"}).
 		WithExec(args).
 		File(binaryPath)
 }
