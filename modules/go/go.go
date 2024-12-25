@@ -187,3 +187,11 @@ func (m *Go) WithBuildCache(
 
 	return m
 }
+
+func (m *Go) WithExec(
+	args []string,
+) *Go {
+	m.Container = m.Container.WithExec(args)
+
+	return m
+}
