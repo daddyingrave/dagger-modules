@@ -9,8 +9,6 @@ import (
 
 // Build Compile the packages into a binary.
 func (m *Go) Build(
-	// Directory with sources
-	source *dagger.Directory,
 	// Package to compile.
 	//
 	// +optional
@@ -70,8 +68,6 @@ func (m *Go) Build(
 	}
 
 	return m.Container.
-		WithDirectory("/src", source).
-		WithWorkdir("/src").
 		WithExec(args).
 		File(binaryPath)
 }

@@ -17,6 +17,8 @@ type Go struct {
 }
 
 func New(
+	source *dagger.Directory,
+
 	// Version (image tag) to use from the official image repository as a base container.
 	//
 	// +optional
@@ -39,6 +41,10 @@ func New(
 
 		container = dag.Container().From(fmt.Sprintf("%s:%s", defaultImageRepository, version))
 	}
+
+	container = container.
+		WithDirectory("/src", source).
+		WithWorkdir("/src")
 
 	m := &Go{
 		Container: container,
