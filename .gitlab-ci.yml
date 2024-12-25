@@ -15,4 +15,4 @@ stages:
 go_tests:
   extends: [ .dagger ]
   script:
-    - /tmp/dagger -quiet call -m ./modules/go_tests all --source=./modules/go_tests/testdata
+    - /tmp/dagger --quiet call -m ./modules/go_tests all --source=./modules/go_tests/testdata
