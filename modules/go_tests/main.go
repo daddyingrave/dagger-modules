@@ -9,10 +9,10 @@ import (
 	"github.com/sourcegraph/conc/pool"
 )
 
-type Tests struct{}
+type GoTests struct{}
 
 // All executes all tests.
-func (m *Tests) All(ctx context.Context, source *dagger.Directory) error {
+func (m *GoTests) All(ctx context.Context, source *dagger.Directory) error {
 	hello.Hell()
 
 	p := pool.New().WithErrors().WithContext(ctx)

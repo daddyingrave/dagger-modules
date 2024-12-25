@@ -8,7 +8,7 @@ import (
 	"dagger/go/tests/internal/dagger"
 )
 
-func (m *Tests) TestGenerate(ctx context.Context, source *dagger.Directory) error {
+func (m *GoTests) TestGenerate(ctx context.Context, source *dagger.Directory) error {
 	content, err := dag.
 		Go().
 		Generate(source, dagger.GoGenerateOpts{Packages: []string{"./..."}}).

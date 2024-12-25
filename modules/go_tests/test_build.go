@@ -7,7 +7,7 @@ import (
 	"dagger/go/tests/internal/dagger"
 )
 
-func (m *Tests) TestBuild(ctx context.Context, source *dagger.Directory) error {
+func (m *GoTests) TestBuild(ctx context.Context, source *dagger.Directory) error {
 	binary, err := dag.Go().
 		Build(source).
 		Sync(ctx)

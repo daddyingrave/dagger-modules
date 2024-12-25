@@ -1,0 +1,18 @@
+stages:
+  - test
+  - build
+
+.dagger:
+  stage: test
+  variables:
+    GOAWAY: "1"
+    DO_NOT_TRACK: "1"
+  image: alpine:latest
+  before_script:
+    - apk add curl
+    - curl -fsSL https://dl.dagger.io/dagger/install.sh | BIN_DIR=/tmp sh
+
+go_tests:
+  extends: [ .dagger ]
+  script:
+    - /tmp/dagger call -m ./modules/go_tests all --source=./modules/go_tests/testdata
